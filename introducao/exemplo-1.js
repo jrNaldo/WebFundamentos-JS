@@ -12,3 +12,30 @@ for(let i = 0; i < arr.length;i++){
         console.table(arrNum[j])
     }
 }
+//Instrucoes = Qualquer comando que passamos para o JS
+const obj = {}
+function dados(prop, valor, obj){
+    if(obj[prop] === undefined){
+        obj[prop] = valor
+    }
+}
+dados("caneta", "r$2,00", obj)
+console.log(obj)
+
+function operacao(n1,n2, simbolo){
+    switch(simbolo){
+        case "*":
+        return n1*n2
+        break
+        case "-":
+        return n1 - n2
+        break
+        case "+":
+        return n1 + n2
+        break
+        case "/":
+        return n1 / n2
+    }
+
+}
+console.log(operacao(2,4,"*"))
