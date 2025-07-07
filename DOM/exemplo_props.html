@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="title1">Curso JavaScript Completo 2018</h1>
+
+    <main class="cmain" id="idmain">
+        <h2>subtitulo</h2>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, aliquid.</p>
+    </main>
+
+    <form action="#">
+        <input type="text" id="txtNome" placeholder="nome" readonly><br><br><br>
+        <input type="text" id="txtEmail" placeholder="email" ><br><br>
+        <input type="checkbox" id="contrato" class="input input2" onclick="habilitar()">
+        <label for="contrato">Li e aceito o contrato</label><br>
+        <textarea name="" id="" cols="30" rows="10">
+            Este contrato. 
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem repellendus dolor, amet magnam ea hic obcaecati facilis tempore sed nesciunt, quasi suscipit nam sunt distinctio odio non ipsam libero aspernatur nisi quidem. Assumenda, doloribus ad. Natus placeat, numquam accusantium deleniti corporis amet. Consequuntur quam molestiae voluptas quo animi, sunt dolorum?
+        </textarea><br>
+        <input type="submit" value="cadastrar" id="cadastrar" disabled >
+    </form>
+
+    <script>
+        const labelContrato = document.querySelector("label[for='contrato']")
+        const contrato = document.querySelector("#contrato")
+        const txtEmail = document.querySelector("#txtEmail")
+        const txtNome = document.querySelector("#txtNome")
+        const cadastrar = document.querySelector("#cadastrar")
+        txtEmail.value = "Naldo@exemplo.com"
+        txtEmail.readOnly = true
+        console.log(labelContrato.htmlFor)
+        console.log(contrato.className)
+        function habilitar(){
+            if(contrato.checked === true){
+            cadastrar.disabled = false
+            }else{
+                cadastrar.disabled = true
+            }
+        }
+    </script>
+</body>
+</html>
