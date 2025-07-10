@@ -3,7 +3,8 @@ const arr = [1,5,10, "ola", false]
 let soNum = arr.some(function(elemento){
     return typeof elemento === "number"
 
-})
+})//É utilizado para verificar se pelo menos um elemento de um array satisfaz uma determinada condição
+
 let arr1 = arr.filter(function(el, i, array){
     return typeof el === "number"
 })
@@ -16,4 +17,4 @@ let arr2 = arr1.map(function(el,i,arr){
 })
 console.log(arr1)
 console.log(arr2)
-console.table(soNum)
+//console.table(soNum)
