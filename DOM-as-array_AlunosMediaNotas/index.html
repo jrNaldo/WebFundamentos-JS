@@ -42,92 +42,92 @@
         <tbody>
             <tr>
               <td>Daniel</td>
-              <td>10</td>
-              <td>3</td>
-              <td>7.5</td>
-              <td>3</td>
-              <td></td>
+              <td class="td-nota">10</td>
+              <td class="td-nota">3</td>
+              <td class="td-nota">7.5</td>
+              <td class="td-nota">3</td>
+              <td class="td-nota"></td>
             </tr>
           
             <tr>
               <td>Maria</td>
-              <td>10</td>
-              <td>9</td>
-              <td>3</td>
-              <td>9.5</td>
-              <td></td>
+              <td class="td-nota">10</td>
+              <td class="td-nota">9</td>
+              <td class="td-nota">3</td>
+              <td class="td-nota">9.5</td>
+              <td class="td-nota"></td>
             </tr>
           
             <tr>
               <td>João</td>
-              <td>10</td>
-              <td>4.5</td>
-              <td>1</td>
-              <td>3.5</td>
-              <td></td>
+              <td class="td-nota">10</td>
+              <td class="td-nota">4.5</td>
+              <td class="td-nota">1</td>
+              <td class="td-nota">3.5</td>
+              <td class="td-nota"></td>
             </tr>
           
             <tr>
               <td>Joana</td>
-              <td>1</td>
-              <td>3</td>
-              <td>9</td>
-              <td>1.5</td>
-              <td></td>
+              <td class="td-nota">1</td>
+              <td class="td-nota">3</td>
+              <td class="td-nota">9</td>
+              <td class="td-nota">1.5</td>
+              <td class="td-nota"></td>
             </tr>
           
             <tr>
               <td>José</td>
-              <td>10</td>
-              <td>4.5</td>
-              <td>7</td>
-              <td>3</td>
-              <td></td>
+              <td class="td-nota">10</td>
+              <td class="td-nota">4.5</td>
+              <td class="td-nota">7</td>
+              <td class="td-nota">3</td>
+              <td class="td-nota"></td>
             </tr>
           
             <tr>
               <td>Arnaldo</td>
-              <td>10</td>
-              <td>4.5</td>
-              <td>7</td>
-              <td>3</td>
-              <td></td>
+              <td class="td-nota">10</td>
+              <td class="td-nota">4.5</td>
+              <td class="td-nota">7</td>
+              <td class="td-nota">3</td>
+              <td class="td-nota"></td>
             </tr>
           
             <tr>
               <td>Lucas</td>
-              <td>4.5</td>
-              <td>9</td>
-              <td>8</td>
-              <td>3</td>
-              <td></td>
+              <td class="td-nota">4.5</td>
+              <td class="td-nota">9</td>
+              <td class="td-nota">8</td>
+              <td class="td-nota">3</td>
+              <td class="td-nota"></td>
             </tr>
           
             <tr>
               <td>Luana</td>
-              <td>3</td>
-              <td>7</td>
-              <td>9</td>
-              <td>3</td>
-              <td></td>
+              <td class="td-nota">3</td>
+              <td class="td-nota">7</td>
+              <td class="td-nota">9</td>
+              <td class="td-nota">3</td>
+              <td class="td-nota"></td>
             </tr>
           
             <tr>
               <td>Beatriz</td>
-              <td>10</td>
-              <td>4</td>
-              <td>7</td>
-              <td>9</td>
-              <td></td>
+              <td class="td-nota">10</td>
+              <td class="td-nota">4</td>
+              <td class="td-nota">7</td>
+              <td class="td-nota">9</td>
+              <td class="td-nota"></td>
             </tr>
           
             <tr>
               <td>Sergio</td>
-              <td>4.5</td>
-              <td>9.5</td>
-              <td>10</td>
-              <td>2</td>
-              <td></td>
+              <td class="td-nota">4.5</td>
+              <td class="td-nota">9.5</td>
+              <td class="td-nota">10</td>
+              <td class="td-nota">2</td>
+              <td class="td-nota"></td>
             </tr>
           </tbody>
       </table>
@@ -138,37 +138,41 @@
     
       <script src="js/calc.js"></script>
       <script>
-        function pegaIndice(indice){
-          const trHeader = document.querySelector("thead tr")
-          const thsHeader = trHeader.querySelectorAll("th")
-          const th = trHeader.querySelector(`[aluno-nota = "${indice}"]`)
-          console.log(th)
-          const i = Array.prototype.indexOf.call(thsHeader, th)
-          return i
+        // function pegaIndice(indice){
+        //   const trHeader = document.querySelector("thead tr")
+        //   const thsHeader = trHeader.querySelectorAll("th")
+        //   const th = trHeader.querySelector(`[aluno-nota = "${indice}"]`)
+        //   console.log(th)
+        //   const i = Array.prototype.indexOf.call(thsHeader, th)
+        //   return i
+        // }
+        // const indices_notas = {
+        //   n1: pegaIndice("n1"),
+        //   n2: pegaIndice("n2"),
+        //   n3: pegaIndice("n3"),
+        //   n4: pegaIndice("n4"),
+        //   media: pegaIndice("media")
+        // };
+        //   (function(){
+        //     const trs = document.querySelectorAll("tbody tr")
+        //     let x = 0
+        //     let media = 0
+        //     while(trs[x]){
+        //       const tds = trs[x]
+       
+        
+        //       x++
+        //     }
+        //   })()
+      (function(){
+        const trs = document.querySelectorAll("tbody tr")
+        let x = 0
+        while (trs[x]) {
+          const tds = trs[x]
+          console.log(tds)
+          x++
         }
-        const indices_notas = {
-          n1: pegaIndice("n1"),
-          n2: pegaIndice("n2"),
-          n3: pegaIndice("n3"),
-          n4: pegaIndice("n4"),
-          media: pegaIndice("media")
-        };
-          (function(){
-            const trs = document.querySelectorAll("tbody tr")
-            let x = 0
-            let media = 0
-            while(trs[x]){
-              const tds = trs[x]
-               media = average(
-                parseFloat(tds[indices_notas.n1].textContent),
-                parseFloat(tds[indices_notas.n2].textContent),
-                parseFloat(tds[indices_notas.n3].textContent),
-                parseFloat(tds[indices_notas.n4].textContent)
-              )
-              tds[indices_notas.media].textContent = media
-              x++
-            }
-          })()
+      })()
       </script>
     </body>
   </html>
