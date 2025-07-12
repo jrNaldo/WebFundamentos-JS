@@ -30,10 +30,10 @@
         <thead>
           <tr>
               <th>Nome</th>
-              <th aluno-nota="1">Nota 1</th>
-              <th aluno-nota="2">Nota 2</th>
-              <th aluno-nota="3">Nota 3</th>
-              <th aluno-nota="4">Nota 4</th>
+              <th aluno-nota="n1">Nota 1</th>
+              <th aluno-nota="n2">Nota 2</th>
+              <th aluno-nota="n3">Nota 3</th>
+              <th aluno-nota="n4">Nota 4</th>
               <th aluno-nota="media">Média</th>
               
           </tr>
@@ -138,28 +138,32 @@
     
       <script src="js/calc.js"></script>
       <script>
+      
+      (function(){
+        const trHeader = document.querySelector("thead tr")
+        const thsHeader = trHeader.querySelectorAll("th")
+        const thAlunos = trHeader.querySelectorAll("[aluno-nota]")
+        const indice = {}
+        
+        Array.from(thAlunos).forEach(function(th){
+          let prop = (th.getAttribute("aluno-nota"))
+          indice[prop]= pegaIndice(prop)
+          console.log("____________________")
+          console.log(prop)
+        })
+
         function pegaIndice(i){
-          const trHeader = document.querySelector("thead tr")
-          const thsHeader = trHeader.querySelectorAll("th")
           const th = trHeader.querySelector(`[aluno-nota="${i}"]`)
           // const n = Array.prototype.indexOf.call(thsHeader, th)
           //const n = Array.from(thsHeader).indexOf(th)
           const n = [...thsHeader].indexOf(th)
-          
           return n
-        }
-      (function(){
-          const indice = {
-            n1: pegaIndice("1"),
-            n2: pegaIndice("2"),
-            n3: pegaIndice("3"),
-            n4: pegaIndice("4"),
-            media: pegaIndice("media")
-          }
-          const trs = document.querySelectorAll("tbody tr")
-          let x = 0
-          let media = 0
-          while(trs[x]){
+        } 
+
+        const trs = document.querySelectorAll("tbody tr")
+        let x = 0
+        let media = 0
+        while(trs[x]){
             console.log(trs[x])
             const tds = trs[x].querySelectorAll("td")
             console.log(tds)
