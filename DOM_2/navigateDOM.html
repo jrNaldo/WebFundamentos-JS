@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Teste dom</h1>
+    <div class="container">
+        <p>teste 1</p>
+        <p>Lorem <a href="#">Link</a> .</p>
+        <p>teste 2</p>
+        <h2>lista</h2>
+        <ul>
+            <li>item 1</li>
+            <li>item 2
+                <ul>
+                    <li>item 2.a</li>
+                    <li>item 2.b</li>
+                    <li>item 2.c</li>
+        </ul>
+            </li>
+            <li>item <a href="#">link</a></li>
+        </ul>
+    </div>
+<script>
+    console.log(document.body)
+    console.log(document.body.parentElement)
+    console.log(document.body.parentNode)
+    
+    const html = document.body.parentElement
+    
+    console.log(document.body.parentElement === document.body.parentNode)
+    
+    console.log(html.parentElement)
+    console.log(html.parentNode)
+
+    const h2 = document.querySelector("h2")
+
+    const h2nextElementSibling = h2.nextElementSibling // Elemento Posterior
+
+    const h2previousElementSibling = h2.previousElementSibling // Elemento Anterior
+
+    h2nextElementSibling.style.background = "yellow"
+    h2previousElementSibling.style.background = "lightblue"
+
+    const link = document.querySelector("a")
+    const list = document.querySelector("ul ul")
+
+    console.log(link)
+    console.log(link.parentElement.childNodes)
+    console.log(link.parentElement.children)
+
+    console.log(list.childNodes) // Retornam todos os tipos de nós
+    console.log(list.children) // Retorna os nós que são elementos
+
+    console.log(link.parentElement.lastChild)
+    console.log(link.parentElement.lastElementChild)
+
+    console.log(link.parentElement.firstChild)
+    console.log(link.parentElement.firstElementChild)
+
+    console.log(list.lastElementChild.hasChildNodes()) // Ele verifica se tem nó 
+    console.log(list.lastElementChild.childNodes)
+</script>
+</body>
+</html>

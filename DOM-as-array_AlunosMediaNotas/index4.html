@@ -10,8 +10,17 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
       <style type="text/css">
+        body{
+          margin-bottom: 200px;
+        }
         .underlined{
           border-bottom: 3px solid currentColor;
+        }
+        .reproved{
+          background-color: rgb(228, 105, 105);
+        }
+        .aproved{
+          background-color: #73e573;
         }
       </style>
     </head>
@@ -26,7 +35,7 @@
         </div>
         <h2 class="materialize-red-text text-lighten-2 underlined">Dados de Alunos</h2>
 
-        <table class="striped">
+        <table>
         <thead>
           <tr>
               <th>Nome</th>
@@ -69,13 +78,15 @@
             
             aluno.media = average(...aluno.notas)
         })
-        const html = alunos.map( aluno => `
-            <tr>
+        const html = alunos.map( aluno => 
+        `
+            <tr class="${aluno.media < 7 ? "reproved": "aproved"}">
                 <td>${aluno.nome}</td>
                 ${aluno.notas.map(n => `<td>${n}</td>`).join("")}
                 <td >${aluno.media}</td>
             </tr>
-        `).join("")
+        `
+      ).join("")
         document.querySelector("tbody").innerHTML = html
         console.log(html)
         })()

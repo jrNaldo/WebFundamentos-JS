@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container2{
+            background-color: #ccc;
+            padding: 15px;
+        }
+        .container2 p{
+            border: 1px solid red;
+            margin: 15px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Teste dom</h1>
+
+    <div class="container2">
+        <p>Paragrafo 1</p>
+        <p>Paragrafo 2</p>
+        <p>Paragrafo 3</p>
+    </div>
+    <div class="container">
+        <p>teste 1</p>
+        <p>Lorem <a href="#">Link</a> .</p>
+        <p>teste 2</p>
+        <h2>lista</h2>
+        <ul>
+            <li>item 1</li>
+            <li>item 2
+                <ul>
+                    <li>item 2.a</li>
+                    <li>item 2.b</li>
+                    <li>item 2.c</li>
+        </ul>
+            </li>
+            <li>item <a href="#">link</a></li>
+        </ul>
+    </div>
+
+    <script>
+        const title = document.createElement("h1")
+
+        const atributo = document.createAttribute("id")
+
+        atributo.value = "titulo"
+
+        title.setAttributeNode(atributo)
+
+        title.setAttribute("title", "title inserido dinamicamente")
+
+        title.setAttribute("style", "color: red;")
+
+        const text = document.createTextNode("criar nós no DOM")
+
+        title.appendChild(text) // Ele add um filho, apos o ultimo filho do elemento
+
+        title.textContent = "Texto inserido com text-content"
+
+        console.log(title)
+
+        document.querySelector(".container").appendChild(title)
+
+        document.querySelector(".container").prepend(title) //Ele add um filho,antes do primeiro filho do elemento
+        const title2 = document.createElement("h1")
+        title2.textContent = "titulo 2"
+
+        const list = document.querySelector("ul")
+
+        const container = document.querySelector(".container")
+
+        document.querySelector(".container").insertBefore(title2, list)
+        document.querySelector(".container").insertBefore(title2, container.firstChild)
+
+        let subUl = document.querySelector("ul ul")
+        subUl = subUl.cloneNode(true)
+        const h2 = document.querySelector("h2")
+        container.insertBefore(subUl, h2.nextElementSibling)
+
+        const segundoParagrafo = container.firstElementChild.nextElementSibling.nextElementSibling
+        console.log(container.firstElementChild)
+        console.log(segundoParagrafo)
+
+        segundoParagrafo.after("texto inserido com after", ", outro texto ze")
+
+        const span = document.createElement("span")
+        span.textContent = "Span dinamica"
+
+        segundoParagrafo.before(span)
+
+        const container2 = document.querySelector(".container2")
+
+        // beforebegin, afterbegin, beforeend, afterend
+
+        container2.insertAdjacentHTML("beforebegin", "<b>Texto inserido </b>") // Use quando precise colocar tags html
+
+        container2.insertAdjacentHTML("afterbegin", "<b>Texto inserido 2</b>")
+
+        container2.insertAdjacentHTML("beforeend", "<b>Texto inserido 3</b>")
+
+        container2.insertAdjacentHTML("afterend", "<b>Texto inserido 4</b>")
+
+
+        container2.insertAdjacentText("afterbegin", "texto qualquer")// Use quando não precise colocar tags html
+
+        const em = document.createElement("em")
+        em.textContent = " texto com enfase"
+        container2.insertAdjacentElement("beforeend", em)
+
+        // list.remove()
+        list.parentElement.removeChild(list)
+
+        const parent = document.body
+        const novo = container.querySelector("h1").cloneNode(true)
+        const velho = document.querySelector("h1")
+        parent.replaceChild(novo, velho)
+    </script>
+</body>
+</html>
