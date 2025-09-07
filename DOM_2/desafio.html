@@ -83,9 +83,8 @@
         ulAlvo.insertAdjacentElement("beforebegin", ultimaLi)
         ultimaLi.textContent = "item 0"
         ultimaLi.append(originalClone)
-
-        ulAlvo.lastElementChild.remove()
-        ulOriginal.remove()
+        originalClone.lastElementChild.remove()
+        ulOriginal.innerHTML = ""
 </script>
 </body>
 </html>
