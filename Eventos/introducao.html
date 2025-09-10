@@ -12,6 +12,13 @@
         <button id="btn2">Botão 2</button>
         <button id="btn3">Botão 3</button>
     </div>
+    <hr>
+    <h1>Delegação de Eventos</h1>
+    <div id="container2">
+        <button>Botão 1</button>
+        <button>Botão 2</button>
+        <button>Botão 3</button>
+    </div>
     <script>
         const btn1 = document.getElementById("btn1")
         const btn2 = document.getElementById("btn2")
@@ -29,14 +36,25 @@
 
         document.addEventListener("click", function(){
             console.log("clicou no document")
-        }, true)
+        }, false)
 
         const container = document.getElementById("container")
 
         container.addEventListener("click", function(){
             console.log("clicou no container")
         },true)
-        
+
+        const container2 = document.querySelector("#container2")
+
+        const btns = document.querySelectorAll("#container2 button")
+        console.log(btns);
+        [...btns].forEach(btn =>{
+            btn.addEventListener("click", function(e){
+                e.stopPropagation()
+                console.log(e.target)
+            })  
+        })
+
     </script>
 </body>
 </html>
