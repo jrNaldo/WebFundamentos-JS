@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #container2{
+            background-color: bisque;
+            padding: 20px;
+        }
+        button{
+            background-color: black;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <h1>Eventos</h1>
@@ -32,29 +46,39 @@
             console.log(event)
             event.stopPropagation()
             console.log("Clicou no btn3")
-        }, true)
+        },true)
 
-        document.addEventListener("click", function(){
+        document.addEventListener("click", function(e){
             console.log("clicou no document")
+            console.log(e.target)
+            console.log(e.currentTarget)
         }, false)
 
         const container = document.getElementById("container")
 
         container.addEventListener("click", function(){
             console.log("clicou no container")
-        },true)
+        },false)
 
         const container2 = document.querySelector("#container2")
 
         const btns = document.querySelectorAll("#container2 button")
         console.log(btns);
-        [...btns].forEach(btn =>{
-            btn.addEventListener("click", function(e){
-                e.stopPropagation()
-                console.log(e.target)
-            })  
+        // [...btns].forEach(btn =>{
+        //     btn.addEventListener("click", function(e){
+        //         e.stopPropagation()
+        //         console.log(e.target)
+        //     })  
+        // })
+        container2.addEventListener("click", function(e){
+            // e.stopPropagation()
+            console.log("clicou no container2")
+            console.log(e.target)
+            console.log(e.currentTarget)
+            if(e.target.nodeName === "BUTTON"){
+                // console.log(e.target)
+            }
         })
-
     </script>
 </body>
 </html>
