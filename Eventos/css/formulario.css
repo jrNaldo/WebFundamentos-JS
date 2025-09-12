@@ -127,3 +127,7 @@ textarea{
     transform: translateY(0px);
 }
 
+#feedbackMessage button:focus{
+    outline: 2px solid black;
+    outline-offset: 3px;
+}

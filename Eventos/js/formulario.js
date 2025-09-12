@@ -5,7 +5,14 @@
     const txtTitulo = document.getElementById("txtTitulo")
     const btn = document.getElementById("btn")
     const formCadastro = document.querySelector(".formCadastro")
-
+    const contadorContainer = document.getElementById("contador")
+    const resta = contadorContainer.getElementsByTagName("span")[0]
+    const txtDescricao = document.getElementById("txtDescricao")
+    const maxima = txtDescricao.maxLength
+    const feedbackMessage = document.getElementById("feedbackMessage")
+    const feedbackMessageCloseBtn = feedbackMessage.getElementsByTagName("button")[0]
+    mostrarNumero(maxima)
+    
     formCadastro.addEventListener("submit", function (e) {
         console.log(txtTitulo.value)
         if (!txtTitulo.value) {
@@ -17,37 +24,32 @@
         }
     })
 
-    const feedbackMessage = document.getElementById("feedbackMessage")
-    const feedbackMessageCloseBtn = feedbackMessage.getElementsByTagName("button")[0]
 
     function showErrorMessage(msg, cb) {
         feedbackMessage.classList.add("show")
         feedbackMessage.getElementsByTagName("p")[0].textContent = msg
-
-
+        feedbackMessageCloseBtn.focus()
         function hideErrorMessage() {
             console.log("clicado close")
             feedbackMessage.classList.remove("show")
             feedbackMessageCloseBtn.removeEventListener("click", hideErrorMessage)
+            feedbackMessageCloseBtn.removeEventListener("keyup", pressedKeyboardOnBtn)
+            if(typeof cb === "function"){
+                cb()
+            }
         }
+
+        function pressedKeyboardOnBtn(e){
+            if(e.keyCode === 27){
+                hideErrorMessage()
+            }
+        }
+
         feedbackMessageCloseBtn.addEventListener("click", hideErrorMessage)
 
-        if (typeof cb === "function") {
-            cb()
-        }
+        feedbackMessageCloseBtn.addEventListener("keyup", pressedKeyboardOnBtn)
     }
-
-
-
-
-    const txtDescricao = document.getElementById("txtDescricao")
-    const contadorContainer = document.getElementById("contador")
-    const resta = contadorContainer.getElementsByTagName("span")[0]
-    const maxima = txtDescricao.maxLength
-
-    mostrarNumero(maxima)
-
-    // contadorContainer.removeAttribute("style")
+    
     contadorContainer.style.display = "block"
 
     function checkLength() {
@@ -59,6 +61,8 @@
     function mostrarNumero(n) {
         resta.textContent = n
     }
+
+
     txtDescricao.addEventListener("input", checkLength)
 
     btn.disabled = true
@@ -67,6 +71,4 @@
     chkAceito.addEventListener("change", function () {
         btn.disabled = !this.checked
     })
-
-
 })()
