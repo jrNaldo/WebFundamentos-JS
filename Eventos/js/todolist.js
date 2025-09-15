@@ -27,6 +27,7 @@
         const containerCancelButton = document.createElement("button")
 
         p.className = "task-name"
+        p.setAttribute("data-action","task-name")
         p.textContent = obj.name
         li.className = "todo-item"
         checkButton.className = "button-check"
@@ -77,8 +78,28 @@
     }
 
     function clickedUl(e){
-        if(e.target.getAttribute("data-action")){
-            console.log(e.target)
+        if(e.target.classList.contains("fa-edit")){
+            const el = e.target.nextElementSibling
+            const input = el.firstChild
+            const p = e.target.parentElement.getElementsByTagName("p")[0]
+            el.style.display= "flex"
+            input.focus()
+            input.value = p.textContent
+        }else if(e.target.classList.contains("fa-trash-alt")){
+            const el = e.target.parentElement
+            el.remove()
+        }else if(e.target.classList.contains("checkButton")){
+            // const button = e.target.classList.contains("checkButton") ? e.target : e.target.parentElement;
+            // const i = button.firstChild;
+            // i.classList.toggle("displayNone");
+        }else if(e.target.classList.contains("editButton")){
+            const input = e.target.parentElement.firstChild
+            const p = e.target.parentElement.parentElement.getElementsByTagName("p")[0]
+            p.textContent = input.value
+            e.target.parentElement.style.display = "none"
+        }else if(e.target.classList.contains("cancelButton")){
+            // elCancel.style.display = "none"
+            e.target.parentElement.style.display = "none"
         }
     }
 
