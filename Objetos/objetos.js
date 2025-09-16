@@ -21,3 +21,13 @@ console.log(str2.length)
 const num = new Number(20)
 console.log(num)
 console.log(num.valueOf())
+
+const data1 = Date()
+console.log(data1)
+console.log(typeof data1)
+
+const data2 = new Date()
+console.log("Dia do Mês => "+  data2.getDate())
+console.log("Mês => " + data2.getMonth()) // Volta um a menos por conta que Jan é 0
+console.log(typeof data2)
+
