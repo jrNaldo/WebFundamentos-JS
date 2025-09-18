@@ -1,4 +1,6 @@
 function Task(name){ // Quando se cria uma função construtora, inicia-se com uma letra maiúscula
+    "use strict"
+    if(this === undefined) return
     let _name = name
 
     this.createdAt = new Date()

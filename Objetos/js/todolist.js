@@ -4,6 +4,18 @@
 
 
 	function Task(name, completed, createdAt, updatedAt){
+        "use strict"
+        if(this === undefined) return
+        if(!name){
+            throw new Error("Task need a required parameter: name")
+        }
+        this.name = name
+        this.completed = completed || false
+        this.createdAt = createdAt || Date.now()
+        this.updatedAt = updatedAt || null
+        this.toggleDone = function(){
+            this.completed = !this.completed
+        }
 		// crie uma funcao construtora chamada Task. 
         // essa funcao recebe por parametro obrigatório o nome da tarefa
         // também recebe tres parametros opcionais (completed, createdAt, updatedAt)
@@ -13,7 +25,6 @@
         //  - createdAt - timestamp - opcional, timestamp atual é o valor default) 
         //  - updatedAt - timestamp - opcional, null é o valor default
         // o objeto retornado por essa funcao deve ter um método chamado toggleDone, que deve inverter o boolean completed
-        
 	}
 
 	let arrTasks = [
@@ -36,11 +47,12 @@
 		}
 	]
 
-
     // a partir de um array de objetos literais, crie um array contendo instancias de Tasks. 
     // Essa array deve chamar arrInstancesTasks
-	// const arrInstancesTasks = DESCOMENTE ESSA LINHA E RESOLVA O ENUNCIADO
-
+	const arrInstancesTasks = arrTasks.map(task => {
+        const {name, completed, createdAt, updatedAt} = task
+        return new Task(name, completed, createdAt, updatedAt)
+    })
 
 
     //ARMAZENAR O DOM EM VARIAVEIS
@@ -114,14 +126,14 @@
     }
 
     function addTask(task) {
-        // adicione uma nova instancia de Task
+        arrInstancesTasks.push(new Task(task))
         renderTasks()
 
     }
 
     function clickedUl(e) {
         const dataAction = e.target.getAttribute("data-action")
-        console.log(e.target)
+        // console.log(e.target)
         if (!dataAction) return
 
         let currentLi = e.target
@@ -157,9 +169,8 @@
                 currentLi.querySelector(".editInput").value = arrInstancesTasks[currentLiIndex].name
             },
             checkButton: function () {
-
                 // DEVE USAR O MÉTODO toggleDone do objeto correto
-
+                arrInstancesTasks[currentLiIndex].toggleDone()
 	            renderTasks()
             }
         }
