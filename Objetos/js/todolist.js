@@ -10,7 +10,6 @@
             throw new Error("Task need a required parameter: name")
         }
         let _name = name
-        // this.name = name
         this.completed = completed || false
         this.createdAt = createdAt || Date.now()
         this.updatedAt = updatedAt || null
@@ -18,16 +17,10 @@
             this.completed = !this.completed
         }
         this.getName = () => _name
-        this.setName = (newName) => {_name = newName}
-		// crie uma funcao construtora chamada Task. 
-        // essa funcao recebe por parametro obrigatório o nome da tarefa
-        // também recebe tres parametros opcionais (completed, createdAt, updatedAt)
-        // o objeto retornado por essa funcao deve ter quatro propriedades:
-        //  - name - string - obrigatório, 
-        //  - completed - boolean - opcional, false é o default, 
-        //  - createdAt - timestamp - opcional, timestamp atual é o valor default) 
-        //  - updatedAt - timestamp - opcional, null é o valor default
-        // o objeto retornado por essa funcao deve ter um método chamado toggleDone, que deve inverter o boolean completed
+        this.setName = function(newName){
+            _name= newName
+            this.updatedAt = Date.now()
+        }
 	}
 
 	let arrTasks = [
