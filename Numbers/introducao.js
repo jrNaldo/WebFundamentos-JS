@@ -7,7 +7,7 @@ numero = 12.34567
 console.log(numero.toExponential())
 
 numero = 11
-console.log(numero.toString(16))
+console.log(numero.toString())
 
 numero = 12345.67
 console.log(numero.toLocaleString("pt-br"))
