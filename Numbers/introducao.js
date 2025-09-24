@@ -12,3 +12,6 @@ console.log(numero.toString(16))
 numero = 12345.67
 console.log(numero.toLocaleString("pt-br"))
 console.log(numero.toLocaleString("pt-pt", {style: "currency", currency: "EUR"}))
+
+let numeroAsString = "3.456"
+console.log(isNaN(numeroAsString))
