@@ -10,9 +10,9 @@
     const [dia, mes, ano] = dataBruta.split("/")
     const [horaPt1, horaPt2] = horas.split("H")
     const newDate = `${ano}-${mes}-${dia}T${horaPt1}:${horaPt2}`
-    // console.log(newDate)
-
+    
     const cronometro = new Date(newDate)
+    console.log(cronometro)
     const dataAtual = new Date()
     let diferencaHoras = cronometro - dataAtual
 
@@ -25,5 +25,4 @@
     const seconds = Math.floor(diferencaHoras / 1000)
 
     paragrafo.innerText += ` ${days} days, ${hours} hours, ${minutes} minutes and ${seconds} seconds`
-    // console.log([cronometro, dataAtual])
 })()
