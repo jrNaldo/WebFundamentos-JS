@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>teste BOM</h1>
+    <a href="history.html">history.html</a>
+    <button>Abre com metodo open</button>
+    <hr>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit fuga deserunt nisi velit modi, consectetur expedita obcaecati magni necessitatibus temporibus rerum, esse natus dignissimos nemo similique voluptas sapiente perspiciatis placeat?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit fuga deserunt nisi velit modi, consectetur expedita obcaecati magni necessitatibus temporibus rerum, esse natus dignissimos nemo similique voluptas sapiente perspiciatis placeat?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit fuga deserunt nisi velit modi, consectetur expedita obcaecati magni necessitatibus temporibus rerum, esse natus dignissimos nemo similique voluptas sapiente perspiciatis placeat?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit fuga deserunt nisi velit modi, consectetur expedita obcaecati magni necessitatibus temporibus rerum, esse natus dignissimos nemo similique voluptas sapiente perspiciatis placeat?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit fuga deserunt nisi velit modi, consectetur expedita obcaecati magni necessitatibus temporibus rerum, esse natus dignissimos nemo similique voluptas sapiente perspiciatis placeat?</p>
+    <script>
+        console.log(`Largura da tela ${innerWidth}`)
+        console.log(`Comprimento da tela ${innerHeight}`)
+        console.log(`Largura total da tela ${outerWidth}`)
+        console.log(`Comprimento total da tela ${outerHeight}`)
+        console.log(`Distancia do eixo y do inicio do browser ${screenY}`)
+        console.log(`Distancia do eixo x do inicio do browser ${screenX}`)
+        let teste = "var de introducao.html"
+        console.log(opener)
+        document.querySelector("button").addEventListener("click", function(){
+            window.open("history.html")
+        })
+        function teste2(){
+            console.log("chamando...")
+        }
+        window.addEventListener("load",function(){
+            console.log("load")
+        })
+        window.addEventListener("DOMContentLoaded", function(){
+            console.log("DOMContentLoaded")
+        })
+        window.addEventListener("resize", function(){
+            console.log("resize", innerHeight, innerWidth)
+        })
+        window.addEventListener("scroll", function(){
+            console.log("scrool", innerHeight, innerWidth)
+        })
+    </script>
+</body>
+</html>

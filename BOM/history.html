@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>History</h1>
+    <button id="btn-back">Volta</button>
+    <br><br>
+    <button id="btn-next">Avança</button><br><br>
+    <a href="http://google.com">google</a>
+    <br><br>
+    <button id="btnClose">Fechar com close</button>
+    <script>
+        console.log(opener)
+        if(opener){
+            opener.teste2()
+        }
+
+        // Acessa historico de navegação do user
+        const btnBack = document.getElementById("btn-back")
+        const btnNext = document.getElementById("btn-next")
+        btnBack.addEventListener("click", function(){
+            history.back()
+        })
+        btnNext.addEventListener("click", function(){
+            history.forward()
+        })
+        document.getElementById("btnClose").addEventListener("click",function(){
+            close()
+        })
+
+    </script>
+</body>
+</html>

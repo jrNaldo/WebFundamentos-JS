@@ -17,11 +17,15 @@
     <div id="principal">
         <header class="hero">
 
+            <div class="top-bar">
+                <p class="title">Curso Javascript Completo</p>
+                <p> Olá, seja bem-vendo(a)</p>
+            </div>
 
 
             <div class="hero-content">
-                <h1>Save the Date: <span>30/10/2025 18H00</span></h1>
-                <!--                 <p>Contagem Regressiva: </p> -->
+                <h1>Curso Javascript Completo</h1>
+                <p>Aprenda Javascript de verdade</p>
             </div>
         </header>
 
@@ -63,7 +67,22 @@
         </footer>
     </div>
 
-    <script src="js/savethedate.js"></script>
+    <script>
+
+        (function () {
+        window.addEventListener("scroll", function(){
+            // console.log(window.scrollY)
+            if(window.scrollY > 250){
+                document.querySelector("body").classList.add("fx")
+            }else{
+                document.querySelector("body").classList.remove("fx")
+
+            }
+        })
+        })()
+
+
+    </script>
 </body>
 
 </html>
