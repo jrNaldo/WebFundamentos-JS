@@ -11,7 +11,7 @@
     function addClassOnScroll(){
         if(elements.length === 0){
             window.removeEventListener("scroll", addClassOnScroll)
-            console.log("Evento removido")
+            console.log("Evento removido com sucesso")
         }
         elements.forEach(el => {
             if(isElementIntoView(el)){
@@ -28,4 +28,5 @@
             }
         })
     }
+    addClassOnScroll()
 })()
