@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .fn{
+            background-color: brown;
+        }
+        .fn2{
+            background-color: red;
+        }
+        .cor{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color: red;">Elemento 1</div>
+    <span>Elemento 2</span>
+    <script>
+        let div = document.querySelector("div")
+        let span = document.querySelector("span")
+        // div.style.backgroundColor = "blue"
+        div.style.color = "#fff"
+        console.log([div.style.backgroundColor, div.style.color])
+
+        span.classList.add("fn")
+        span.classList.add("cor")
+        span.classList.toggle("fn2", true)
+        span.classList.toggle("fn", false)
+    </script>
+</body>
+</html>

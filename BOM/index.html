@@ -70,15 +70,15 @@
     <script>
 
         (function () {
-        window.addEventListener("scroll", function(){
-            // console.log(window.scrollY)
-            if(window.scrollY > 250){
-                document.querySelector("body").classList.add("fx")
-            }else{
-                document.querySelector("body").classList.remove("fx")
-
-            }
-        })
+            window.addEventListener("scroll", function(){
+                
+                const body = document.querySelector("body")
+                if(pageYOffset > 250 && body.classList.contains("fx")){
+                    body.classList.add("fx")
+                }else if(pageYOffset <= 250 && body.classList.contains("fx")){
+                    body.classList.remove("fx")
+                }
+            })
         })()
 
 
