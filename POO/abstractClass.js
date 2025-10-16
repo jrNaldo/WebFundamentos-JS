@@ -7,7 +7,7 @@ class Animal{
     }
 
     comer(){
-        throw new Error("Method 'comer() must be implemented")
+        throw new Error("Method 'comer()' must be implemented")
     }
 }
 
