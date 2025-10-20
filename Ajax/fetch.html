@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="lista"></ul>
+    <script>
+        function mostraDados(dados){
+            let result = ""
+            const lista = document.querySelector("#lista")
+            dados.forEach(dado => {
+                result += `<li >Nome: ${dado.nome}, Email: ${dado.email}</li>`
+            })
+            lista.innerHTML = result
+        }
+        // Exemplo de requisição sem API
+        fetch("./dados.json")
+            .then(resp => {
+                if(!resp.ok){
+                    throw Error("Erro da requisição")
+                }
+                return resp.json()
+            })
+            .then(dados => {
+                console.log(dados)
+                mostraDados(dados)
+            })
+            .catch(erro => console.error("Erro: ", erro))
+    </script>
+</body>
+</html>

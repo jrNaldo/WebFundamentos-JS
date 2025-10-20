@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+<body>
+    <script>
+        const solicitarSenha = email =>{
+            return new Promise((resolve,reject) => {
+                setTimeout(() => {
+                    if(email === "naldo@gmail.com"){
+                        resolve("Senha: '1234'")
+                    }else{
+                        reject("Acesso negado")
+                    }
+                }, 2000)
+            })
+        }
+        const verificarEmail = email =>{
+            return new Promise((resolve,reject) => {
+                setTimeout(() => {
+                    if(email.includes("@") && email.endsWith(".com")){
+                        resolve(email)
+                    }else{
+                        reject("Email invalido")
+                    }
+                },2000);
+            })
+        }
+        verificarEmail("naldo@gmail.com")
+                .then(resp => {
+                    return solicitarSenha(resp)
+                })
+                .then(resp => console.log("Cadastro concluido | "+ resp))
+                .catch(console.log)
+
+    </script>
+
+</body>
+</html>

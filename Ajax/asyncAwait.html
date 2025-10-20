@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="lista"></ul>
+    <script>
+        function mostraDados(dados){
+            let result = ""
+            const lista = document.querySelector("#lista")
+            dados.forEach(dado => {
+                result += `<li >Nome: ${dado.nome}, Email: ${dado.email}</li>`
+            })
+            lista.innerHTML = result
+        }
+
+        async function buscarDados(){
+            // Use await em cdigos assincronos
+            // Fetch retorna uma promise
+            try{
+                const resposta = await fetch("./dados.json")
+                if(!resposta.ok){
+                    throw Error("Erro na requisição")
+                }
+                const dados = await resposta.json()
+            }catch(e){
+                console.error("Error: ", e)
+            }
+        }
+    </script>
+</body>
+</html>
