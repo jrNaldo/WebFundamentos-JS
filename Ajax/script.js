@@ -7,14 +7,21 @@ const contError = document.getElementById("erro-dialog")
 const btnError = document.getElementById("fechar-dialog")
 
 function formatarCep(){
-    return cepInput.value.replace(/\D/g, "")
+    return cepInput.value.replace("-","").trim()
 }
 
 function showEndereco(logradouro,bairro,localidade, uf){
-    logradouroInput.value = logradouro
-    bairroInput.value = bairro
-    cidadeInput.value = localidade
-    ufInput.value = uf
+    logradouroInput.value = logradouro || ""
+    bairroInput.value = bairro || ""
+    cidadeInput.value = localidade || ""
+    ufInput.value = uf || ""
+}
+
+function limparDados(){
+    logradouroInput.value = ""
+    bairroInput.value = ""
+    cidadeInput.value = ""
+    ufInput.value = ""
 }
 
 async function buscarDados() {
@@ -29,10 +36,14 @@ async function buscarDados() {
             if(dados.erro){
                 throw Error("Erro de Consulta")
             }
+        }else{
+            throw Error("O cep deve conter 8 digitos")
         }
     }catch(e){
+        limparDados()
         contError.showModal()
         console.log(e)
+        document.getElementById("erro-msg").textContent = e
     }
 }
 
